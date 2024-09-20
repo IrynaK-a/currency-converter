@@ -1,0 +1,45 @@
+@import '/src/assets/css/variables';
+@import '/src/assets/css/mixins';
+
+.main {
+  margin-top: $header-height;
+  padding: 2rem;
+  color: $black;
+  flex-grow: 1;
+
+  @include small-laptop {
+    padding-block: 10rem;
+  }
+}
+
+.converterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: $white;
+  margin-block: auto;
+
+  @include small-laptop {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    padding: 5rem 3rem;
+  }
+}
+
+.changeImg {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid $accent;
+
+  @include small-laptop {
+    width: 56px;
+    height: 56px;
+  }
+
+  &:hover {
+    background-color: $accent-bg;
+  }
+}

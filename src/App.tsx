@@ -1,9 +1,15 @@
+import { ErrorBoundary } from 'react-error-boundary';
+import { CurrencyProvider, ErrorPage } from './components';
 import { HomePage } from './pages/HomePage';
 
 function App() {
   return (
     <>
-      <HomePage />
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <CurrencyProvider>
+          <HomePage />
+        </CurrencyProvider>
+      </ErrorBoundary>
     </>
   );
 }

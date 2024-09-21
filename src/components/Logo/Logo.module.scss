@@ -1,0 +1,12 @@
+@import '/src/assets/css/variables';
+@import '/src/assets/css/mixins';
+
+
+.logo {
+  font-weight: bold;
+  color: $accent;
+  
+  @include small-laptop {
+    font-size: 18px;
+  }
+}

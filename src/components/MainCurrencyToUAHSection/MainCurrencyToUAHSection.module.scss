@@ -1,0 +1,26 @@
+@import '/src/assets/css/variables';
+@import '/src/assets/css/mixins.scss';
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+
+  @include small-laptop {
+    flex-direction: row;
+    gap: 100px;
+  }
+}
+
+.currencyBlock {
+  display: flex;
+  gap: 15px;
+  font-weight: bold;
+
+  @include tablet {
+    gap: 25px;
+  }
+}
+
+.currency {
+  color: gray;
+}

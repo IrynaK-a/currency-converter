@@ -15,6 +15,7 @@
 .converterSection {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
   padding: 2rem;
   border-radius: 20px;
@@ -24,6 +25,7 @@
   @include small-laptop {
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
     padding: 5rem 3rem;
   }
 }
@@ -33,13 +35,12 @@
   padding: 10px;
   border-radius: 50%;
   border: 1px solid $accent;
+  width: 56px;
+  height: 56px;
+  transform: rotate(90deg);
+
 
   @include small-laptop {
-    width: 56px;
-    height: 56px;
-  }
-
-  &:hover {
-    background-color: $accent-bg;
+    transform: rotate(0);
   }
 }

@@ -21,15 +21,19 @@ export const Converter = () => {
 
     if (value) {
       const numericValue = parseFloat(value);
-      const convertedValue = calculateAmount(
-        numericValue,
-        haveCurrency.conversion_rates[receiveCurrency.base_code],
-      );
 
       if (fromType === 'have') {
+        const convertedValue = calculateAmount(
+          numericValue,
+          haveCurrency.conversion_rates[receiveCurrency.base_code],
+        );
         setHaveAmount(value);
         setReceiveAmount(String(convertedValue));
       } else {
+        const convertedValue = calculateAmount(
+          numericValue,
+          receiveCurrency.conversion_rates[haveCurrency.base_code],
+        );
         setReceiveAmount(value);
         setHaveAmount(String(convertedValue));
       }

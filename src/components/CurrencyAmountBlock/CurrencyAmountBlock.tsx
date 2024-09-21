@@ -6,13 +6,9 @@ import { BlockName, IOption } from '../../types';
 import styles from './CurrencyAmountBlock.module.scss';
 import { useMemo } from 'react';
 import { useCurrencyState, useDispatch } from '../../hooks';
-import {
-  createCodes,
-  createOptions,
-  getCurrencyInfo,
-  roundToTwo,
-} from '../../utils';
+import { createCodes, createOptions, getCurrencyInfo } from '../../utils';
 import { ERROR_MESSAGE, MAIN_CURRENCIES } from '../../constants';
+import { roundToThree } from '../../utils/roundToTwo';
 
 type Props = {
   blockName: BlockName;
@@ -86,8 +82,8 @@ export const CurrencyAmountBlock: React.FC<Props> = ({
       ? receiveCurrency.base_code
       : haveCurrency.base_code;
     const currencyRate = isHaveBlock
-      ? roundToTwo(haveCurrency.conversion_rates[receiveCurrencyCode])
-      : roundToTwo(receiveCurrency.conversion_rates[receiveCurrencyCode]);
+      ? roundToThree(haveCurrency.conversion_rates[receiveCurrencyCode])
+      : roundToThree(receiveCurrency.conversion_rates[receiveCurrencyCode]);
 
     return `1 ${haveCurrencyCode} = ${currencyRate} ${receiveCurrencyCode}`;
   }, [haveCurrency, receiveCurrency, isHaveBlock]);

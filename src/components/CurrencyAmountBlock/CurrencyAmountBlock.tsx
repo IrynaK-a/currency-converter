@@ -1,4 +1,5 @@
 import Select, { SingleValue, StylesConfig } from 'react-select';
+import { toast } from 'react-toastify';
 
 import { BlockName, IOption } from '../../types';
 
@@ -11,7 +12,7 @@ import {
   getCurrencyInfo,
   roundToTwo,
 } from '../../utils';
-import { MAIN_CURRENCIES } from '../../constants';
+import { ERROR_MESSAGE, MAIN_CURRENCIES } from '../../constants';
 
 type Props = {
   blockName: BlockName;
@@ -106,21 +107,31 @@ export const CurrencyAmountBlock: React.FC<Props> = ({
     }
 
     if (isHaveBlock) {
-      const newCurrency = await getCurrencyInfo(option.value);
+      try {
+        const newCurrency = await getCurrencyInfo(option.value);
 
-      dispatch({
-        type: 'setHaveCurrency',
-        payload: newCurrency,
-      });
-      hangleConvert('', blockName);
+        dispatch({
+          type: 'setHaveCurrency',
+          payload: newCurrency,
+        });
+        hangleConvert('', blockName);
+      } catch {
+        toast.error(ERROR_MESSAGE);
+        hangleConvert('', blockName);
+      }
     } else {
-      const newCurrency = await getCurrencyInfo(option.value);
+      try {
+        const newCurrency = await getCurrencyInfo(option.value);
 
-      dispatch({
-        type: 'setReceiveCurrency',
-        payload: newCurrency,
-      });
-      hangleConvert('', blockName);
+        dispatch({
+          type: 'setReceiveCurrency',
+          payload: newCurrency,
+        });
+        hangleConvert('', blockName);
+      } catch {
+        toast.error(ERROR_MESSAGE);
+        hangleConvert('', blockName);
+      }
     }
   };
 

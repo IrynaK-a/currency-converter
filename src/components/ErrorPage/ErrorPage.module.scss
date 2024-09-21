@@ -1,0 +1,43 @@
+@import '/src/assets/css/variables';
+@import '/src/assets/css/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.icon {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  margin-bottom: 30px;
+}
+
+.button {
+  color: $white;
+  font-family: inherit;
+  text-transform: capitalize;
+  background-color: $accent;
+  border: 1px solid $accent;
+  border-radius: 10px;
+  transition: all $transiton-duration;
+
+  padding: 15px 10px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $dark-accent;
+    border-color: $dark-accent;
+    box-shadow: $hover-box-shadow;
+  }
+}

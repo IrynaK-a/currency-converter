@@ -9,3 +9,5 @@ export {
   DispatchContext,
   StateContext,
 } from './CurrencyProvider';
+export { ErrorPage } from './ErrorPage';
+export { Notification } from './Notification';

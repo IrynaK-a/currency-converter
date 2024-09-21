@@ -90,7 +90,7 @@ export const CurrencyAmountBlock: React.FC<Props> = ({
       : roundToTwo(receiveCurrency.conversion_rates[receiveCurrencyCode]);
 
     return `1 ${haveCurrencyCode} = ${currencyRate} ${receiveCurrencyCode}`;
-  }, [haveCurrency, receiveCurrency]);
+  }, [haveCurrency, receiveCurrency, isHaveBlock]);
 
   const hangleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;

@@ -38,7 +38,7 @@ export const HomePage = () => {
         toast.error(errorMessage);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   if (hasError) {
     return (

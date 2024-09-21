@@ -6,13 +6,11 @@ import tseslint from 'typescript-eslint';
 import prettierPlugin from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 
-export default tseslint.config(
+export default [
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  prettierConfig,
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      'prettier',
-    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -29,10 +27,16 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      'import/no-cycle': [2, { maxDepth: 1 }],
-
       'prettier/prettier': 'error',
     },
+    ignores: [
+      '/build',
+      '/dist',
+      '/node_modules',
+      '*.scss',
+      '*.css',
+      '*.json',
+      '.env',
+    ],
   },
-  prettierConfig,
-);
+];
